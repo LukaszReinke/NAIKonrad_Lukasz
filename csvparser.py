@@ -1,4 +1,5 @@
 import csv
+import os
 
 userDict = {}
 ##parser zostal przygotowany specjalnie dla naszego pliku
@@ -49,6 +50,8 @@ for key, values in userDict.items():
             file.write("},")
         else:
             file.write(f'"{value.movieName}" : {value.movieScore},')
+file.seek(file.tell() - 1, os.SEEK_SET)
+file.write('')
 file.write("}")
     
         

@@ -46,7 +46,8 @@ def cosing_score(dataset, user1, user2):
     ##licznik
     cosine_numerator  = []
     #mianownik
-    cosine_denominator = []
+    cosine_denominator_user1 = []
+    cosine_denominator_user2 = []
     
     for item in dataset[user1]:
         if item in dataset[user2]:
@@ -54,13 +55,13 @@ def cosing_score(dataset, user1, user2):
             
     for item in dataset[user1]:
         if item in dataset[user2]:
-            cosine_denominator.append(np.square(dataset[user1][item]))
+            cosine_denominator_user1.append(np.square(dataset[user1][item]))
             
     for item in dataset[user1]:
         if item in dataset[user2]:
-            cosine_denominator.append(np.square(dataset[user2][item]))
+            cosine_denominator_user2.append(np.square(dataset[user2][item]))
             
     #wzor na cos kata miedzy 2 punktami mamy z https://en.wikipedia.org/wiki/Cosine_similarity
-    return np.sum(cosine_numerator)/np.sum(cosine_denominator)
+    return np.sum(cosine_numerator)/(np.sqrt(np.sum(cosine_denominator_user1)) * np.sqrt(np.sum(cosine_denominator_user2)))
     
     
