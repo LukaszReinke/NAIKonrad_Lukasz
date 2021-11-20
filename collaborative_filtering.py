@@ -103,37 +103,37 @@ if __name__=='__main__':
     sorted_movies_of_similar_user_eu = sorted(movies_of_similar_user_eu.items(), key=lambda x: x[1])
     sorted_movies_of_similar_user_cos = sorted(movies_of_similar_user_cos.items(), key=lambda x: x[1])
     #znajdz 5 filmow do polecenia i 5 filmow nie do polecenia
-    top_5_to_recomend_eu = sorted_movies_of_similar_user_eu[::-5]
-    bottom_5_to_recomend_eu = sorted_movies_of_similar_user_eu[::5]
+    top_5_to_recomend_eu = sorted_movies_of_similar_user_eu[-5:]
+    bottom_5_to_recomend_eu = sorted_movies_of_similar_user_eu[:5]
     
-    top_5_to_recomend_cos = sorted_movies_of_similar_user_cos[::-5]
-    bottom_5_to_recomend_cos = sorted_movies_of_similar_user_cos[::5]
+    top_5_to_recomend_cos = sorted_movies_of_similar_user_cos[-5:]
+    bottom_5_to_recomend_cos = sorted_movies_of_similar_user_cos[:5]
     
     #uzyj scrapera do wyswietlenia informacji o poleconych filmach
     for movie in top_5_to_recomend_eu:
         movies_dict = GetMovies(movie[0])
         print(f"Info for {movie[0]} : ")
         for key, value in movies_dict.items():
-            print(f"{key} : {value}")
+            print(f"\t\t{key} : {value}")
             
     print('-'*41)
     for movie in bottom_5_to_recomend_eu:
         movies_dict = GetMovies(movie[0])
         print(f"Info for {movie[0]} : ")
         for key, value in movies_dict.items():
-            print(f"{key} : {value}")
+            print(f"\t\t{key} : {value}")
     print('-'*41)   
     for movie in top_5_to_recomend_cos:
         movies_dict = GetMovies(movie[0])
         print(f"Info for {movie[0]} : ")
         for key, value in movies_dict.items():
-            print(f"{key} : {value}")
+            print(f"\t\t{key} : {value}")
     print('-'*41)   
     for movie in bottom_5_to_recomend_cos:
         movies_dict = GetMovies(movie[0])
         print(f"Info for {movie[0]} : ")
         for key, value in movies_dict.items():
-            print(f"{key} : {value}")
+            print(f"\t\t{key} : {value}")
     print('-'*41)
     
     
