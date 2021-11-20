@@ -1,3 +1,16 @@
+"""
+authors: Konrad Chrzanowski, Łukasz Reinke
+emails: s17404@pjwstk.edu.pl , s15037@pjwstk.edu.pl
+
+Żeby uruchomić program trzeba zainstalować
+
+pip install bs4
+pip install numpy
+pip install scipy
+pip install scikit-learn
+pip install urllib3
+"""
+
 import json
 import numpy as np
 from scraper import GetMovies
